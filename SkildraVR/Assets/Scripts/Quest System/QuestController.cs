@@ -24,9 +24,39 @@ using UnityEngine;
 ///  
 /// </summary>
 
-namespace skildravr.story.quest{ 
-    public class QuestController : MonoBehaviour
-    {
+namespace skildravr.story.quest {
+    public class QuestController : MonoBehaviour {
+        private Quest currentQuest;
+        private Coroutine stateCoroutine;
         
+
+        public Quest getCurrentQuest() {
+            return this.currentQuest;
+        }
+
+        private void setCurrentQuest(Quest quest) {
+            if(currentQuest == null || quest == null) {
+                Debug.LogWarning("QUESTCONTROLLER: CURRENT QUEST EQUALS NULL");
+                return;
+            } else {
+                if(currentQuest.getQuestState() == QuestState.COMPLETED)
+                    this.currentQuest = quest;
+            }
+        }
+
+        private void BeginQuestPhase(){
+            stateCoroutine = StartCoroutine(IEStateChecker(currentQuest.getQuestState()));
+        }
+
+        private void TerminateQuestPhase(){
+            StopCoroutine(stateCoroutine);
+        }
+
+        // Wait for the state to change. if changing -->  callback;
+        private IEnumerator IEStateChecker(QuestState state){
+            while(state == currentQuest.getQuestState()){
+                yield return null;
+            }
+        }
     }
 }
