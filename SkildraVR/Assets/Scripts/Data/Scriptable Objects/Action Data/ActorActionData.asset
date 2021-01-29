@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ActorActionData
   m_EditorClassIdentifier: 
   actor: {fileID: 0}
-  QuestIndex: 0
   AnimationName: 
   ScriptClip: {fileID: 0}
+  questState: 0

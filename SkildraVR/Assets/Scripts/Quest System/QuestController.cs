@@ -1,13 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using skildravr.story.actor;
 
 namespace skildravr.story.quest {
     public class QuestController : MonoBehaviour {
-        private Quest currentQuest;
-        private Coroutine stateCoroutine;
-        
+        [SerializeField]private Quest currentQuest;
 
+        private Quest[] quests;
+        private Coroutine stateCoroutine;
+
+        [SerializeField] private ActorActionSO[] phaseActions;
+
+
+        private void Awake() {
+            OnInit();
+        }
+
+        private void OnInit(){
+            currentQuest = new Quest();
+            currentQuest.InitDictionary();
+        }
         public Quest getCurrentQuest() {
             return this.currentQuest;
         }
@@ -22,8 +35,14 @@ namespace skildravr.story.quest {
             }
         }
 
+        private void InitQuestPhase(){
+            phaseActions = currentQuest.getActionsByState(currentQuest.getQuestState());
+
+        }
+
         private void BeginQuestPhase(){
             stateCoroutine = StartCoroutine(IEStateChecker(currentQuest.getQuestState()));
+            
         }
 
         private void TerminateQuestPhase(){

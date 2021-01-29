@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace skildravr.interfaces {
     interface ICanAdd<T>  {
-
-        public bool CanAdd(T item);
+        bool CanAdd(T item);
         
     }
 }

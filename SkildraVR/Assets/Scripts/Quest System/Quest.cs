@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using skildravr.story.actor;
 using skildravr.interfaces;
-
+using skildravr.story.quest.scriptableobjects;
 
 namespace skildravr.story.quest {
 
@@ -15,38 +15,52 @@ namespace skildravr.story.quest {
         COMPLETED=4
     }
 
-    public class Quest : MonoBehaviour, ICanAdd<Actor>{
+    [System.Serializable]
+    public class Quest {
 
-        private List<Actor> actors; // List of participating actors
-        private QuestState questState = QuestState.INIT; // Quest State
 
-        private void setQuestState(QuestState state) {
-            this.questState = state;
+        [SerializeField] private QuestSO currentQuestData;
+
+        private Dictionary<QuestState, ActorActionSO> actingSequence = new Dictionary<QuestState, ActorActionSO>();
+       
+
+        public void setQuestState(QuestState state) {
+            this.currentQuestData.state = state;
         }
 
         public QuestState getQuestState() {
-            return this.questState;
+            return this.currentQuestData.state;
         }
 
-        public void AddActor(Actor actor) {
-            if(CanAdd(actor))
-                this.actors.Add(actor);
-            else Debug.LogWarning("QUEST: AddActor -- Can't add actor");
+        public void setCurrentQuest(QuestSO newQuestData){
+            this.currentQuestData = newQuestData;
         }
 
-        private void ClearActorList(){
-            actors.Clear();
+        public QuestSO getCurrentQuest(){
+            return this.currentQuestData;
         }
 
-        public List<Actor> GetActors(){
-            return actors;
+        public ActorActionSO[] getActorActions(){
+            return this.currentQuestData.actorActions;
         }
 
-        public bool CanAdd(Actor actor) {
-            if(actors != null && actor != null) {
-                if(actors.Contains(actor)) return false;
-                else return true;
-            } else return false;
+         public void InitDictionary(){
+            foreach(ActorActionSO item in getActorActions()){
+                actingSequence.Add(item.state, item);
+            }
         }
+
+        public ActorActionSO[] getActionsByState(QuestState state){
+            List<ActorActionSO> entries = new List<ActorActionSO>();
+            foreach(KeyValuePair<QuestState, ActorActionSO> entry in actingSequence){
+                if(entry.Key == state){
+                    entries.Add(entry.Value);
+                }
+            }
+            return entries.ToArray();
+        }
+
+        
+ 
     }
 }

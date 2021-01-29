@@ -9,6 +9,7 @@ namespace skildravr.story.actor {
 
         private List<ActorActionSO> actorActions;
         private byte currentActionIndex = 0;
+        public string actorName{ get; private set; }
 
         private void ClearActions(){
             actorActions.Clear();
