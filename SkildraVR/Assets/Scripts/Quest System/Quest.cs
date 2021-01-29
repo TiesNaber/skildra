@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using skildravr.story.actor;
+
 
 namespace skildravr.story.quest {
 
@@ -18,6 +20,7 @@ namespace skildravr.story.quest {
         private List<Actor> actors; // List of participating actors
         private QuestState questState = QuestState.INIT; // Quest State
 
+
         private void setQuestState(QuestState state) {
             this.questState = state;
         }
@@ -34,6 +37,10 @@ namespace skildravr.story.quest {
 
         private void ClearActorList(){
             actors.Clear();
+        }
+
+        public List<Actor> GetActors(){
+            return actors;
         }
 
         private bool canAddActor(Actor actor) {
