@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using skildravr.story.actor;
+using skildravr.interfaces;
 
 
 namespace skildravr.story.quest {
@@ -14,12 +15,10 @@ namespace skildravr.story.quest {
         COMPLETED=4
     }
 
-    public class Quest : MonoBehaviour {
+    public class Quest : MonoBehaviour, ICanAdd<Actor>{
 
-        
         private List<Actor> actors; // List of participating actors
         private QuestState questState = QuestState.INIT; // Quest State
-
 
         private void setQuestState(QuestState state) {
             this.questState = state;
@@ -30,7 +29,7 @@ namespace skildravr.story.quest {
         }
 
         public void AddActor(Actor actor) {
-            if(canAddActor(actor))
+            if(CanAdd(actor))
                 this.actors.Add(actor);
             else Debug.LogWarning("QUEST: AddActor -- Can't add actor");
         }
@@ -43,7 +42,7 @@ namespace skildravr.story.quest {
             return actors;
         }
 
-        private bool canAddActor(Actor actor) {
+        public bool CanAdd(Actor actor) {
             if(actors != null && actor != null) {
                 if(actors.Contains(actor)) return false;
                 else return true;
