@@ -9,7 +9,7 @@ namespace skildravr.story.actor {
 
         private List<ActorActionSO> actorActions;
         private byte currentActionIndex = 0;
-        public string actorName{ get; private set; }
+        public string actorName;
 
         private void ClearActions(){
             actorActions.Clear();
@@ -20,5 +20,25 @@ namespace skildravr.story.actor {
                 return false;
             } else return true;
         }
+
+        public void setActorActions(List<ActorActionSO> actions){
+            this.actorActions = actions;
+        }
+
+        private void setNextActionIndex(){
+            if(currentActionIndex + 1 < actorActions.Count - 1) {
+                currentActionIndex++;
+            } else return;
+        }
+
+        public string getActorName(){
+            return this.actorName;
+        }
+
+        private void setActorName(string name){
+            this.actorName = name;
+        }
+
+        
     }
 }
