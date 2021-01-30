@@ -16,7 +16,7 @@ namespace skildravr.story.actor {
         }
 
         public bool CanAdd(ActorActionSO action) {
-            if(action == null || actorActions.Count <= 0) {
+            if(action == null && actorActions.Count <= 0) {
                 return false;
             } else return true;
         }
