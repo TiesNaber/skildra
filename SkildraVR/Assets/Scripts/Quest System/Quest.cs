@@ -21,7 +21,7 @@ namespace skildravr.story.quest {
 
         [SerializeField] private QuestSO currentQuestData;
 
-        private Dictionary<QuestState, ActorActionSO> actingSequence = new Dictionary<QuestState, ActorActionSO>();
+        private Dictionary<QuestState, List<ActorActionSO>> actingSequence = new Dictionary<QuestState, List<ActorActionSO>>();
        
 
         public void setQuestState(QuestState state) {
@@ -46,7 +46,11 @@ namespace skildravr.story.quest {
 
          public void InitDictionary(){
             foreach(ActorActionSO item in getActorActions()){
-                actingSequence.Add(item.state, item);
+                if(!actingSequence.ContainsKey(item.state))
+                    actingSequence.Add(item.state, item);
+                else{
+                    actingSequence[item.state
+                }
             }
         }
 

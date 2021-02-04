@@ -12,18 +12,22 @@ namespace skildravr.story.quest {
 
         [SerializeField] private ActorActionSO[] phaseActions;
 
+        private Dictionary<string, Actor> actors = new Dictionary<string, Actor>();
+
 
         private void Awake() {
             OnInit();
         }
 
         private void OnInit(){
-            currentQuest = new Quest();
+            
             currentQuest.InitDictionary();
+            InitActorDictionary();
         }
         public Quest getCurrentQuest() {
             return this.currentQuest;
         }
+
 
         private void setCurrentQuest(Quest quest) {
             if(currentQuest == null || quest == null) {
@@ -53,6 +57,13 @@ namespace skildravr.story.quest {
         private IEnumerator IEStateChecker(QuestState state){
             while(state == currentQuest.getQuestState()){
                 yield return null;
+            }
+        }
+
+        private void InitActorDictionary(){
+            foreach(Actor actor in FindObjectsOfType<Actor>()){
+                actors.Add(actor.actorName, actor);
+                print(actor.actorName);
             }
         }
     }

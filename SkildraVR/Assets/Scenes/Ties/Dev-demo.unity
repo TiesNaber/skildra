@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f72b0c8cffca3c4cae906e66745876a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actorName: Hook
 --- !u!4 &312997782
 Transform:
   m_ObjectHideFlags: 0

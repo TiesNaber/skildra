@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c75eb01958264ea75ae9804daa081, type: 3}
   m_Name: QuestData
   m_EditorClassIdentifier: 
-  actors: []
+  actors:
+  - {fileID: 0}
+  - {fileID: 0}
   actorActions:
   - {fileID: 11400000, guid: 46f288d93678d8b44aa192169a37a898, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 646d65667172f6848ad9622965a8f381, type: 2}
   state: 0

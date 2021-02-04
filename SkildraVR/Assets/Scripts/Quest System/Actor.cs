@@ -38,7 +38,5 @@ namespace skildravr.story.actor {
         private void setActorName(string name){
             this.actorName = name;
         }
-
-        
     }
 }
