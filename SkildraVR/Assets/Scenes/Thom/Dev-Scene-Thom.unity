@@ -1042,15 +1042,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: f632ee341faffa64ebfa4e2c74d6e422, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 650.36
+      value: 648.73
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: f632ee341faffa64ebfa4e2c74d6e422, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: f632ee341faffa64ebfa4e2c74d6e422, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 496.72
+      value: 488.42
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: f632ee341faffa64ebfa4e2c74d6e422, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1378,6 +1378,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1445938527}
     m_Modifications:
+    - target: {fileID: 2847131186729628259, guid: ccabc84ff03306a429be7d2fa292631e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534442238242092104, guid: ccabc84ff03306a429be7d2fa292631e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5159185635041757655, guid: ccabc84ff03306a429be7d2fa292631e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1452,6 +1462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Viking_hut_1_wRoof (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535711934189802349, guid: ccabc84ff03306a429be7d2fa292631e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccabc84ff03306a429be7d2fa292631e, type: 3}
@@ -3137,6 +3152,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1445938527}
     m_Modifications:
+    - target: {fileID: 2847131186729628259, guid: ccabc84ff03306a429be7d2fa292631e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534442238242092104, guid: ccabc84ff03306a429be7d2fa292631e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5159185635041757655, guid: ccabc84ff03306a429be7d2fa292631e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3196,6 +3221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Viking_hut_1_wRoof (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535711934189802349, guid: ccabc84ff03306a429be7d2fa292631e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccabc84ff03306a429be7d2fa292631e, type: 3}
@@ -4734,6 +4764,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Viking_hut_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1929819779933448943, guid: 6349a76831e2cf643a741b06d9545435,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6349a76831e2cf643a741b06d9545435, type: 3}
 --- !u!4 &1587924643531661556 stripped
@@ -4987,10 +5022,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1445938527}
     m_Modifications:
+    - target: {fileID: 2847131186729628259, guid: ccabc84ff03306a429be7d2fa292631e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3534442238242092104, guid: ccabc84ff03306a429be7d2fa292631e,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5159185635041757655, guid: ccabc84ff03306a429be7d2fa292631e,
         type: 3}
@@ -5051,6 +5091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Viking_hut_1_wRoof
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535711934189802349, guid: ccabc84ff03306a429be7d2fa292631e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccabc84ff03306a429be7d2fa292631e, type: 3}
@@ -5131,6 +5176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237573309709349111, guid: a2c920d2d5b052047af6e5f276683b0b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c920d2d5b052047af6e5f276683b0b, type: 3}
