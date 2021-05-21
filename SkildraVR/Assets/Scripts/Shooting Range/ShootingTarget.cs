@@ -3,6 +3,7 @@ using overexcited.vr.weapons.range;
 
 namespace overexcited.vr.weapons.target
 {
+    
     [RequireComponent(typeof(Collider))]
     public class ShootingTarget : MonoBehaviour
     {
@@ -23,6 +24,13 @@ namespace overexcited.vr.weapons.target
             }
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                TargetHit();
+            }
+        }
 
         private void OnTriggerEnter(Collider other)
         {

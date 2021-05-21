@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using overexcited.vr.weapons.target;
+using overexcited.vr.managers;
 
 namespace overexcited.vr.controllers{
 
@@ -16,7 +17,9 @@ namespace overexcited.vr.controllers{
 
         private Coroutine idleTimerCoroutine;
 
-        private void OnAwake(){
+        private OXC_SceneManager sceneManager;
+
+        private void Start(){
             SubscribeToEvents();
         }
 
@@ -24,6 +27,8 @@ namespace overexcited.vr.controllers{
             timesHit = 0;
             isIdle = false;
             maxIdleTime = minutesToSeconds();
+            sceneManager = FindObjectOfType<OXC_SceneManager>();
+            Debug.Log("Been Here");
         }
 
         /// <summary>
@@ -47,7 +52,8 @@ namespace overexcited.vr.controllers{
         private IEnumerator trackIdleTime(){
         
             yield return new WaitForSeconds(endGameTime);
-        
+            EndScene();
+
         }
 
 
@@ -56,30 +62,36 @@ namespace overexcited.vr.controllers{
             if (!isMaxHitsReached())
             {
                 timesHit++;
+                Debug.Log(timesHit);
             }
             else
             {
-                throw new System.Exception("SHOULD END SCENE, BUT NOT IMPLEMENTED YET");// Call End Scene
+                EndScene();
             }
         }
 
         private bool isMaxHitsReached()
         {
-            if (timesHit < maxHits)
+            if (timesHit + 1 < maxHits)
                 return false;
             else return true;
+        }
+
+        private void EndScene(){
+            UnsubscribeFromEvents();
+            sceneManager.LoadScene("end-screen");
         }
 
         private void SubscribeToEvents(){
             ShootingTarget.OnHitTarget += TargetHit;
         }
-        private void UnsubscribeToEvents(){
+        private void UnsubscribeFromEvents(){
             ShootingTarget.OnHitTarget -= TargetHit;
         }
 
         private void OnDestroy()
         {
-            UnsubscribeToEvents();
+            UnsubscribeFromEvents();
         }
     }
 }
