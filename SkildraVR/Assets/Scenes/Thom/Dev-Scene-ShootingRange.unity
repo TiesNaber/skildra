@@ -443,6 +443,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: prop_fence_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
 --- !u!1001 &392147271
@@ -516,6 +521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: prop_fence_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
@@ -591,6 +601,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: prop_fence_02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
 --- !u!1001 &528298726
@@ -664,6 +679,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: prop_fence_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
@@ -739,6 +759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: prop_fence_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
 --- !u!1001 &745240707
@@ -812,6 +837,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: prop_fence_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
@@ -975,6 +1005,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: prop_fence_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
@@ -1298,6 +1333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: prop_fence_02 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
 --- !u!1001 &1870616108
@@ -1371,6 +1411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: prop_fence_02 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782281442013706209, guid: 93561ad528e289446892b290969222cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93561ad528e289446892b290969222cf, type: 3}
