@@ -13,7 +13,7 @@ namespace overexcited.vr.weapons.target
 
         private bool isHittable;
 
-        private void Start(){
+        private void OnAwake(){
             isHittable = true;
         }
 
@@ -34,11 +34,10 @@ namespace overexcited.vr.weapons.target
 
         private void OnTriggerEnter(Collider other)
         {
-            var arrow = other.GetComponentInParent<Arrow>();
+            var arrow = other.GetComponent<Arrow>();
             if(arrow != null && isHittable){
                 isHittable = false;
                 TargetHit();
-                arrow.Stick();
             }
         }
     }

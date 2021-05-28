@@ -7,17 +7,23 @@ namespace overexcited.vr.general
     {
         public Transform tf_parent { get; private set; }
 
-        public virtual void Drop()
+        // Use this for initialization
+        private void Start()
+        {
+
+        }
+
+        public void Drop()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void PickUp()
+        public void PickUp()
         {
             throw new System.NotImplementedException();
         }
 
-        protected virtual void TriggerAction()
+        private void TriggerAction()
         {
             throw new System.NotImplementedException();
         }
