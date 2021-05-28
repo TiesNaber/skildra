@@ -13,17 +13,26 @@ namespace overexcited.vr.weapons.range
 
         private Coroutine destroyCoroutine;
         
-
-        private void Start()
+        
+        private void Awake()
         {
+            rb = GetComponent<Rigidbody>();
             InitObject();
         }
 
+        private void OnEnable()
+        {
+            InitObject();
+            if(rb != null)
+                rb.velocity = Vector3.zero;
+        }
+
         private void InitObject(){
-            rb = GetComponent<Rigidbody>();
+            
             setKinematic(true);
             isShot = false;
         }
+
 
         public override void Drop()
         {
@@ -48,7 +57,6 @@ namespace overexcited.vr.weapons.range
 
         public void ApplyForce(float forceAmount){
             setKinematic(false);
-            //rb.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
             rb.velocity = transform.forward * forceAmount;
             isShot = true;
             destroyCoroutine = StartCoroutine(destroyTimer(destroyTime));
@@ -60,7 +68,8 @@ namespace overexcited.vr.weapons.range
         /// </summary>
         /// <param name="isKinematic"></param>
         private void setKinematic(bool isKinematic){
-            rb.isKinematic = isKinematic;
+            if(rb != null)
+                rb.isKinematic = isKinematic;
         }
 
         public void Stick(){
@@ -73,8 +82,18 @@ namespace overexcited.vr.weapons.range
         private IEnumerator destroyTimer(float time){
 
             yield return new WaitForSeconds(time);
-            Destroy(this.gameObject);
+            DeactivateObject();
         }
 
+        private void DeactivateObject(){
+            rb.velocity = Vector3.zero;
+            setKinematic(true);
+            isShot = false;
+            if (transform.parent != null)
+            {
+                transform.SetParent(null, false);
+            }
+            this.gameObject.SetActive(false);
+        }
     }
 }

@@ -7,7 +7,6 @@ namespace overexcited.vr.weapons.range
     public class Bow : Interactable
     {
         [SerializeField] private Arrow currentArrow;
-        [SerializeField] private GameObject arrowPrefab;
         [SerializeField] private float pullSpeed, releaseForce;
 
         [SerializeField] private Transform knockingPoint;
@@ -16,6 +15,7 @@ namespace overexcited.vr.weapons.range
 
         private GameObject maxPoint;
         private bool isSpawning;
+        private bool canShoot;
 
         private LineRenderer bowString;
         [SerializeField] private Transform topBow, botBow;
@@ -31,15 +31,17 @@ namespace overexcited.vr.weapons.range
             maxPoint.transform.localPosition = maxPullPosition;
 
             bowString = GetComponent<LineRenderer>();
+
+            canShoot = true;
         }
 
         private void Update()
         {
-            if(Input.GetKey(KeyCode.D)){
+            if(Input.GetKey(KeyCode.D) && canShoot){
                 PullString();
             }
 
-            if(Input.GetKeyUp(KeyCode.D)){
+            if(Input.GetKeyUp(KeyCode.D) && canShoot){
                 ReleaseString();
             }
 
@@ -59,6 +61,7 @@ namespace overexcited.vr.weapons.range
         void ReleaseString()
         {
             if(currentArrow!=null){
+                canShoot = false;
                 ReleaseArrow();
                 knockingPoint.localPosition = Vector3.zero;
 
@@ -72,7 +75,7 @@ namespace overexcited.vr.weapons.range
 
         public override void PickUp()
         {
-            
+            throw new System.NotImplementedException("PickUp method not implemented yet");
         }
 
 
@@ -80,18 +83,17 @@ namespace overexcited.vr.weapons.range
             yield return new WaitForSeconds(0.5f);
             SpawnArrow();
             isSpawning = false;
+            canShoot = true;
         }
-
-
 
         private void PlaceArrow(Arrow arrow){
             currentArrow = arrow;
         }
+
         private void ReleaseArrow(){
             currentArrow.transform.SetParent(null,true);
             currentArrow.ApplyForce(calculatePullPower());
-           
-            
+
             currentArrow = null;
 
         }
@@ -101,14 +103,18 @@ namespace overexcited.vr.weapons.range
         }
 
         private void SpawnArrow(){
-            GameObject temp = Instantiate(arrowPrefab.gameObject,knockingPoint.localPosition,Quaternion.identity);
-            temp.transform.SetParent(knockingPoint, false);
-            currentArrow = temp.GetComponent<Arrow>();
+            GameObject arrow = ObjectPooler.sharedInstance.GetPooledObject();
+            if(arrow!=null){
+                arrow.transform.position = knockingPoint.localPosition;
+                arrow.transform.eulerAngles = knockingPoint.forward;
+                arrow.transform.SetParent(knockingPoint, false);
+                currentArrow = arrow.GetComponent<Arrow>();
+                arrow.SetActive(true);
+            }
         }
 
         private void updateLineRenderer(){
             bowString.SetPositions(new Vector3[] { topBow.localPosition, knockingPoint.localPosition, botBow.localPosition });
-            
         }
     }
 }
