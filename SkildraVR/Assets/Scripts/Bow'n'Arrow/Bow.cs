@@ -10,6 +10,7 @@ namespace overexcited.vr.weapons.range
         [SerializeField] private float pullSpeed, releaseForce;
 
         [SerializeField] private Transform knockingPoint;
+        private Vector3 knockingPointStartPos;
         private Vector3 maxPullPosition;
         private float maxPullValue_Z = 0.3f;
 
@@ -24,6 +25,7 @@ namespace overexcited.vr.weapons.range
         void Start()
         {
             maxPullPosition = new Vector3(0, 0, knockingPoint.localPosition.z - maxPullValue_Z);
+            knockingPointStartPos = knockingPoint.localPosition;
 
             maxPoint = new GameObject("knockingPointMax");
             maxPoint.transform.SetParent(transform);
@@ -69,7 +71,7 @@ namespace overexcited.vr.weapons.range
             {
                 canShoot = false;
                 ReleaseArrow();
-                knockingPoint.localPosition = Vector3.zero;
+                knockingPoint.localPosition = knockingPointStartPos;
 
                 if (!isSpawning)
                 {
@@ -120,6 +122,7 @@ namespace overexcited.vr.weapons.range
                 arrow.transform.position = knockingPoint.localPosition;
                 arrow.transform.eulerAngles = knockingPoint.forward;
                 arrow.transform.SetParent(knockingPoint, false);
+                arrow.transform.localPosition = Vector3.zero;
                 currentArrow = arrow.GetComponent<Arrow>();
                 arrow.SetActive(true);
             }
