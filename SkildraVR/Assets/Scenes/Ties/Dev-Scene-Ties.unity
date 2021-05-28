@@ -132,10 +132,11 @@ GameObject:
   - component: {fileID: 43354749}
   - component: {fileID: 43354753}
   - component: {fileID: 43354752}
+  - component: {fileID: 43354750}
   m_Layer: 0
   m_Name: Shooting Range
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -153,6 +154,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &43354750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43354748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fc09838d0b541498fcba14f5a473cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 6277066454297546173, guid: 58c6b7069d1890b4da20037cc41c73cb,
+    type: 3}
+  amountToPool: 10
+  isPoolEmpty: 0
 --- !u!114 &43354752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,8 +681,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146241024}
-  m_LocalRotation: {x: -0.14912334, y: 0.6912035, z: 0.14912337, w: 0.6912035}
-  m_LocalPosition: {x: 307.41, y: 3.76, z: 247.056}
+  m_LocalRotation: {x: 0.029335726, y: 0.75764227, z: -0.05809566, w: 0.64941704}
+  m_LocalPosition: {x: 308.238, y: 3.926, z: 246.921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1410604542}
@@ -673,7 +691,7 @@ Transform:
   - {fileID: 1545252059}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: -24.349, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.2460003, y: 98.68301, z: -1.7910001}
 --- !u!114 &1146241026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,8 +705,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentArrow: {fileID: 0}
-  arrowPrefab: {fileID: 6277066454297546173, guid: 58c6b7069d1890b4da20037cc41c73cb,
-    type: 3}
   pullSpeed: 8
   releaseForce: 50
   knockingPoint: {fileID: 1410604542}

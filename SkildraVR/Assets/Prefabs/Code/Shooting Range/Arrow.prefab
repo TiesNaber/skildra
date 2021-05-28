@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6277066454188884336}
   - component: {fileID: 6277066454188884343}
   - component: {fileID: 6277066454188884342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6277066454297546168}
   - component: {fileID: 6277066454297546175}
   - component: {fileID: 6277066454297546174}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

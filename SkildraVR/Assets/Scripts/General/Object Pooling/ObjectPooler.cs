@@ -15,7 +15,8 @@ public class ObjectPooler : Singleton<ObjectPooler>
         CreatePool();
     }
 
-    private void CreatePool(){
+    private void CreatePool()
+    {
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < amountToPool; i++)
         {
@@ -25,14 +26,15 @@ public class ObjectPooler : Singleton<ObjectPooler>
         }
     }
 
-    public GameObject GetPooledObject(){
+    public GameObject GetPooledObject()
+    {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if(!pooledObjects[i].activeInHierarchy){
+            if (!pooledObjects[i].activeInHierarchy)
+            {
                 return pooledObjects[i];
             }
         }
-
         return null;
     }
 }

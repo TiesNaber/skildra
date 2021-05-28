@@ -12,8 +12,8 @@ namespace overexcited.vr.weapons.range
         float destroyTime = 5f;
 
         private Coroutine destroyCoroutine;
-        
-        
+
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
@@ -23,12 +23,13 @@ namespace overexcited.vr.weapons.range
         private void OnEnable()
         {
             InitObject();
-            if(rb != null)
+            if (rb != null)
                 rb.velocity = Vector3.zero;
         }
 
-        private void InitObject(){
-            
+        private void InitObject()
+        {
+
             setKinematic(true);
             isShot = false;
         }
@@ -41,7 +42,8 @@ namespace overexcited.vr.weapons.range
 
         public override void PickUp()
         {
-            if(rb.isKinematic != true){
+            if (rb.isKinematic != true)
+            {
                 setKinematic(true);
             }
         }
@@ -55,7 +57,8 @@ namespace overexcited.vr.weapons.range
             }
         }
 
-        public void ApplyForce(float forceAmount){
+        public void ApplyForce(float forceAmount)
+        {
             setKinematic(false);
             rb.velocity = transform.forward * forceAmount;
             isShot = true;
@@ -67,25 +70,29 @@ namespace overexcited.vr.weapons.range
         /// False --> Gravity;
         /// </summary>
         /// <param name="isKinematic"></param>
-        private void setKinematic(bool isKinematic){
-            if(rb != null)
+        private void setKinematic(bool isKinematic)
+        {
+            if (rb != null)
                 rb.isKinematic = isKinematic;
         }
 
-        public void Stick(){
+        public void Stick()
+        {
             StopCoroutine(destroyCoroutine);
             rb.velocity = Vector3.zero;
             setKinematic(true);
             isShot = false;
         }
 
-        private IEnumerator destroyTimer(float time){
+        private IEnumerator destroyTimer(float time)
+        {
 
             yield return new WaitForSeconds(time);
             DeactivateObject();
         }
 
-        private void DeactivateObject(){
+        private void DeactivateObject()
+        {
             rb.velocity = Vector3.zero;
             setKinematic(true);
             isShot = false;
