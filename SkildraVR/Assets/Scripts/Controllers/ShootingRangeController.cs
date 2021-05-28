@@ -21,6 +21,7 @@ namespace overexcited.vr.controllers{
 
         private void Start(){
             SubscribeToEvents();
+            InitInstance();
         }
 
         private void InitInstance(){
@@ -61,7 +62,7 @@ namespace overexcited.vr.controllers{
         {
             if (!isMaxHitsReached())
             {
-                timesHit++;
+                //timesHit++;
                 Debug.Log(timesHit);
             }
             else
