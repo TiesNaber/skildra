@@ -10,11 +10,14 @@ namespace overexcited.vr.weapons.target
         public delegate void TargetEvent();
         public static event TargetEvent OnHitTarget;
 
+        private SFX_player sfx_Player;
 
         private bool isHittable;
 
         private void Start(){
             isHittable = true;
+
+            sfx_Player = GetComponent<SFX_player>();
         }
 
         private void TargetHit(){
@@ -39,6 +42,7 @@ namespace overexcited.vr.weapons.target
                 isHittable = false;
                 TargetHit();
                 arrow.Stick();
+                sfx_Player.PlayClip(0);
             }
         }
     }

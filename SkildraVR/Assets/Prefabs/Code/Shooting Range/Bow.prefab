@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentArrow: {fileID: 0}
-  pullSpeed: 8
+  pullSpeed: 6
   releaseForce: 30
   knockingPoint: {fileID: 5312771866595815655}
   topBow: {fileID: 5312771866374801393}
@@ -286,7 +286,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 573e501a64622554582ecc0d5535a47c, type: 3}
+  - {fileID: 8300000, guid: 253f761d36959e04cb56cd81f38298eb, type: 3}
   - {fileID: 8300000, guid: e0275801ce72f4b4dac9cb16a8c00111, type: 3}
 --- !u!1001 &5312771867370357282
 PrefabInstance:
