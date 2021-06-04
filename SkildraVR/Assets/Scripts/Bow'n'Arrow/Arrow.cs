@@ -52,17 +52,19 @@ namespace overexcited.vr.weapons.range
         {
             if (isShot)
             {
-                transform.LookAt(transform.position - rb.velocity);
+                transform.LookAt(transform.position + rb.velocity);
                 transform.Rotate(3, 0, 0);
             }
         }
 
         public void ApplyForce(float forceAmount)
         {
+            transform.LookAt(transform.position - rb.velocity);
             setKinematic(false);
-            rb.velocity = transform.forward * forceAmount;
-            isShot = true;
+            rb.velocity = forceAmount * this.transform.forward;
             destroyCoroutine = StartCoroutine(destroyTimer(destroyTime));
+            
+            isShot = true;
         }
 
         /// <summary>
@@ -78,9 +80,10 @@ namespace overexcited.vr.weapons.range
 
         public void Stick()
         {
+            setKinematic(true);
             StopCoroutine(destroyCoroutine);
             rb.velocity = Vector3.zero;
-            setKinematic(true);
+            transform.position = transform.position;
             isShot = false;
         }
 
@@ -101,6 +104,15 @@ namespace overexcited.vr.weapons.range
                 transform.SetParent(null, false);
             }
             this.gameObject.SetActive(false);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.layer == 9){
+                setKinematic(true);
+                rb.velocity = Vector3.zero;
+                isShot = false;
+            }
         }
     }
 }

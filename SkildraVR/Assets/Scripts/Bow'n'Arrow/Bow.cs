@@ -21,6 +21,9 @@ namespace overexcited.vr.weapons.range
         private LineRenderer bowString;
         [SerializeField] private Transform topBow, botBow;
 
+        private SFX_player sfx_Player;
+        private bool isPulling;
+
         // Use this for initialization
         void Start()
         {
@@ -33,8 +36,10 @@ namespace overexcited.vr.weapons.range
             maxPoint.transform.localPosition = maxPullPosition;
 
             bowString = GetComponent<LineRenderer>();
+            sfx_Player = GetComponent<SFX_player>();
 
             canShoot = true;
+            isPulling = false;
         }
 
         private void Update()
@@ -61,6 +66,12 @@ namespace overexcited.vr.weapons.range
 
         void PullString()
         {
+            if (!isPulling)
+            {
+                sfx_Player.PlayClip(0);
+                isPulling = true;
+            }
+
             if (knockingPoint.localPosition.z > maxPullPosition.z)
                 knockingPoint.localPosition = Vector3.Lerp(knockingPoint.localPosition, maxPoint.transform.localPosition, pullSpeed * Time.deltaTime);
         }
@@ -78,6 +89,7 @@ namespace overexcited.vr.weapons.range
                     isSpawning = true;
                     StartCoroutine(spawnNewArrowDelay());
                 }
+                isPulling = false;
             }
         }
 
@@ -102,10 +114,14 @@ namespace overexcited.vr.weapons.range
 
         private void ReleaseArrow()
         {
-            currentArrow.transform.SetParent(null, true);
+            Vector3 worldPos = transform.TransformPoint(knockingPoint.transform.localPosition);
+            currentArrow.transform.SetParent(null);
+            
+            currentArrow.transform.position = worldPos;
             currentArrow.ApplyForce(calculatePullPower());
-
+            
             currentArrow = null;
+            sfx_Player.PlayClip(1);
 
         }
 

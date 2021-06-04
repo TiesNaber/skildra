@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7299560744298126425}
   - component: {fileID: 8918709319042512340}
   - component: {fileID: 374786421}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Archerytarget_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.13, y: 0.94, z: 0.33}
+  m_Size: {x: 1.13, y: 0.94, z: 1}
   m_Center: {x: 0, y: 0.93, z: 0.11}
 --- !u!54 &374786421
 Rigidbody:
